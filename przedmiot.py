@@ -1,5 +1,5 @@
-class Przedmiot
-    def __int__(self,nazwa,bonus_do_ataku):
+class Przedmiot:
+    def __init__(self,nazwa,bonus_do_ataku):
         self.nazwa = nazwa
         self.bonus_do_ataku = bonus_do_ataku
 

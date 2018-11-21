@@ -6,13 +6,20 @@ from przedmiot import Przedmiot
 class Postac():
     def __init__(self,imie,atak,zdrowie):
         self.imie = imie
-        self.atak = atak
+        self._atak = atak
         self.zdrowie = zdrowie
         self.max_zdrowie = zdrowie
         self.ekwipunek = []
 
-    def przedstaw_sie(self):
-        print(self)
+    # def przedstaw_sie(self):
+    #     print(self)
+
+    @property
+    def atak(self):
+        wynik = self._atak
+        for p in self.ekwipunek:
+            wynik += p.bonus_do_ataku
+        return wynik
 
     def __str__(self):
         if self.czy_zyje():
@@ -49,8 +56,14 @@ class Postac():
         wynik = randint(self.atak//2,self.atak)
         return wynik
 
-     def daj_przedmiot(self,przedmiot):
+    def daj_przedmiot(self,przedmiot):
          self.ekwipunek.append(przedmiot)
+
+    def atak_plus(self):
+        wynik = self.atak
+        for p in self.ekwipunek:
+            wynik+= p.bonus_do_ataku
+        return wynik
 
 
     @staticmethod
@@ -68,15 +81,17 @@ class Postac():
         print ("Koniec walki")
 
 
-rufus = Postac ("Rufus",30,100)
-grazyna = Postac ("Grażyna",40,800)
+rufus = Postac("Rufus",30,100)
+grazyna = Postac("Grażyna",40,800)
 
-tulipan = Przedmiot ("Zielony tulipan zniszczenia",5)
+tulipan = Przedmiot("Zielony tulipan zniszczenia",5)
 rufus.daj_przedmiot(tulipan)
 
-Postac.walka(rufus,grazyna)
+Postac.walka(rufus, grazyna)
 print(rufus)
 print(grazyna)
+
+# print(f"Bonus atak: {rufus.atak_plus()}")
 # obrazenia=(5)
 # rufus.przedstaw_sie()
 # print(rufus)
