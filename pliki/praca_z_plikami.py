@@ -1,5 +1,4 @@
-import sys
-
+https://github.com/rkorzen/python_bootcamp_06102018/blob/devel/zjazd_4/zadanie_5.py
 try:
     print(sys.argv[1])
 except IndexError:
