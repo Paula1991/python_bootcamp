@@ -1,0 +1,30 @@
+import tkinter
+
+def jakasfunkcja():
+    cena = float(entry.get())
+    dystans = int(entry1.get())
+    spalanie = float(entry2.get())
+    koszt= (dystans/100)*spalanie*cena
+    entry3.configure(text="f{koszt} PLN")
+
+root = tkinter.Tk()
+root.columnconfigure(1)
+entry = tkinter.Entry(master=root)
+entry.grid(row=0,column=1)
+label = tkinter.Label(master=root , text="Cena")
+label.grid(row=0, column=0)
+entry1 = tkinter.Entry(master=root)
+entry1.grid(row=1,column=1)
+label1 = tkinter.Label(master=root , text="Dystans")
+label1.grid(row=1, column=0)
+entry2 = tkinter.Entry(master=root)
+entry2.grid(row=2,column=1)
+label2 = tkinter.Label(master=root , text="Spalanie")
+label2.grid(row=2, column=0)
+entry3 = tkinter.Entry(master=root)
+entry3.grid(row=3,column=1)
+label3 = tkinter.Label(master=root , text="Koszt")
+label3.grid(row=3, column=0)
+button = tkinter.Button(master=root, text="Click me!", command=jakasfunkcja)
+button.grid(row=5,column=0)
+root.mainloop()
