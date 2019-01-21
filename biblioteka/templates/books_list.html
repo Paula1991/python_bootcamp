@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div.book {widith
+    </style>
+</head>
+<body>
+To są moje książki:
+
+{% for k in ksiazki %}
+<div class=""book"
+    <h2>{{ k.title }}</h2>
+    <div class="author">Author: {{ k.author }}</div>
+    <hr>
+    <article>{{ k.description }}</article>
+    <hr>
+    <img class="cover" src="{{ k.cover }}">
+    {% k.cover %}
+</div>
+{% endfor %}
+
+
+</body>
+</html>
